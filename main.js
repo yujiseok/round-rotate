@@ -8,12 +8,10 @@ const gap = 10;
 
 display(265, 265, 265, 265);
 
-start();
+rotate();
 
 function circle(wr, hr, radian) {
-  // x = W * cos(R)
   const x = wr * Math.cos(radian);
-  // y = H * sin(R)
   const y = hr * Math.sin(radian);
   return {
     x,
@@ -34,10 +32,9 @@ function display(cx, cy, wr, hr) {
   }
 }
 
-function start() {
+function rotate() {
   runner = setInterval(function () {
     degrees++;
-    console.log(degrees);
     round.style.webkitTransform = "rotate(" + degrees + "deg)";
   }, 50);
 }
