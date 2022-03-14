@@ -5,10 +5,7 @@ let runner;
 let degrees = 0;
 const itemLength = 10;
 const gap = 10;
-
-display(265, 265, 265, 265);
-
-rotate();
+let increase = 0;
 
 function circle(wr, hr, radian) {
   const x = wr * Math.cos(radian);
@@ -21,7 +18,7 @@ function circle(wr, hr, radian) {
 
 function display(cx, cy, wr, hr) {
   for (let i = 0; i < itemLength; i++) {
-    const degree = (360 / itemLength) * i;
+    const degree = (360 / itemLength) * i + increase;
     const radian = (degree * Math.PI) / 180;
     const point = circle(wr, hr, radian);
     const x = Math.floor(point.x + cx);
@@ -34,10 +31,15 @@ function display(cx, cy, wr, hr) {
 
 function rotate() {
   runner = setInterval(function () {
-    degrees++;
-    round.style.webkitTransform = "rotate(" + degrees + "deg)";
+    increase++;
+    console.log(increase);
+    display(265, 265, 265, 265);
   }, 50);
+  //   round.style.webkitTransform = "rotate(" + degrees + "deg)";
+  // }, 50);
 }
+
+rotate();
 
 // function stop() {
 //   clearInterval(runner);
